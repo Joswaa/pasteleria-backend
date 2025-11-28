@@ -10,6 +10,7 @@ import java.util.List;
 public class ProductService {
 
     private final List<ProductDto> products = new ArrayList<>();
+    private int nextId = 7;
 
     public ProductService() {
         products.add(new ProductDto(
@@ -76,5 +77,24 @@ public class ProductService {
                 .filter(p -> p.getId() == id)
                 .findFirst()
                 .orElse(null);
+    }
+    public ProductDto create(ProductDto dto) {
+        dto.setId(nextId++);
+        products.add(dto);
+        return dto;
+    }
+    public ProductDto update(int id,ProductDto dto) {
+        ProductDto existing = getById(id);
+        if (existing == null) return null;
+
+        existing.setName(dto.getName());
+        existing.setDescription(dto.getDescription());
+        existing.setPrice(dto.getPrice());
+        existing.setCategory(dto.getCategory());
+        existing.setImageUrl(dto.getImageUrl());
+        return existing;
+    }
+    public boolean delete(int id) {
+        return products.removeIf(p -> p.getId() == id);
     }
 }

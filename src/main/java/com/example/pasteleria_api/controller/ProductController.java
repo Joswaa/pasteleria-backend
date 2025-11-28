@@ -10,13 +10,13 @@ import java.util.List;
 @RequestMapping("/products")
 @CrossOrigin(origins = "*")
 public class ProductController {
+
     private final ProductService productService;
 
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
-    //Trae la lista de productos
     @GetMapping
     public List<ProductDto> getProducts() {
         return productService.getAll();
@@ -25,5 +25,20 @@ public class ProductController {
     @GetMapping("/{id}")
     public ProductDto getProduct(@PathVariable int id) {
         return productService.getById(id);
+    }
+
+    @PostMapping
+    public ProductDto createProduct(@RequestBody ProductDto dto) {
+        return productService.create(dto);
+    }
+
+    @PutMapping("/{id}")
+    public ProductDto updateProduct(@PathVariable int id, @RequestBody ProductDto dto) {
+        return productService.update(id, dto);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteProduct(@PathVariable int id) {
+        productService.delete(id);
     }
 }
