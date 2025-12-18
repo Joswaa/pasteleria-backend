@@ -3,7 +3,11 @@ Integrantes:
 -Joshua Martinez
 -Ignacia cavedo
 
-Backend REST desarrollado con **Spring Boot 3** para exponer el catálogo de productos de la pastelería **Mil Sabores**. La API está desplegada en una instancia **AWS EC2** y es consumida por la app Android mediante Retrofit.
+Backend REST desarrollado con **Spring Boot 3** para exponer el catálogo de productos de la pastelería **Mil Sabores**.  
+La API está desplegada en una instancia **AWS EC2** y es consumida por:
+
+- Una aplicación **Android** mediante Retrofit.
+- El **frontend web** de la pastelería, desarrollado con **React**, que usa esta API para el catálogo, el carrito y el inicio de sesión.
 
 ## Tecnologías
 
@@ -109,6 +113,4 @@ Estos comandos se ejecutan en su mayoria en la cmd de su PC
 
 ## 📚 Licencia
 
-Proyecto académico desarrollado como parte de la asignatura **“Desarrollo de Aplicaciones Móviles / Consumo de API REST y Microservicios”**.  
-Uso educativo y demostrativo.
-
+Proyecto académico desarrollado como parte de las asignaturas de **Desarrollo de Aplicaciones Móviles** y **Desarrollo de Aplicaciones Web**, integrando un backend en Spring Boot con clientes Android y web (React).
